@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://gun_laser.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map_layer1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map_layer2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://boss_2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Missile.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+
+[node name="Main" type="Node"]
+
+script = ExtResource( 1 )
+gun = ExtResource( 2 )
+
+[node name="Map_layer1" parent="." index="0" instance=ExtResource( 3 )]
+
+scale = Vector2( 2, 2 )
+
+[node name="Map_layer2" parent="." index="1" instance=ExtResource( 4 )]
+
+scale = Vector2( 2, 2 )
+
+[node name="Boss" parent="." index="2" instance=ExtResource( 5 )]
+
+scale = Vector2( 0.75, 0.75 )
+Missile = ExtResource( 6 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 7 )]
+
+[connection signal="respawn_laser" from="Boss" to="." method="_on_Boss_respawn_laser"]
+
+[connection signal="shoot" from="Boss" to="." method="_on_shoot"]
+
+[connection signal="shoot" from="Player" to="." method="_on_shoot"]
+
+

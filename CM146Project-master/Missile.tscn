@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Missile.gd" type="Script" id=1]
+[ext_resource path="res://Explosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://images/Boss/BIG_MAMA-0.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+
+[node name="Missile" type="Area2D" index="0"]
+
+position = Vector2( -1.38788, 0.198273 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+speed = 50
+damage = 1
+lifetime = 5.0
+Expl = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 46, 3, 9, 47 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.249135, 13.2512 )
+scale = Vector2( 0.494244, 1.76554 )
+shape = SubResource( 1 )
+
+[node name="Lifetime" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[connection signal="body_entered" from="." to="." method="_on_Missile_body_entered"]
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]
+
+

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://images/fireball.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 25.0878
+height = 0.313797
+
+[node name="PlayerBullet" instance=ExtResource( 1 )]
+
+scale = Vector2( 0.5, 0.5 )
+speed = 750
+lifetime = 0.5
+
+[node name="Sprite" parent="." index="0"]
+
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="body_entered" from="." to="." method="_on_PlayerBullet_body_entered"]
+
+

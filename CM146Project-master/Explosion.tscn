@@ -1,0 +1,62 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Explosion.gd" type="Script" id=1]
+[ext_resource path="res://images/explosion/tile000.png" type="Texture" id=2]
+[ext_resource path="res://images/explosion/tile001.png" type="Texture" id=3]
+[ext_resource path="res://images/explosion/tile002.png" type="Texture" id=4]
+[ext_resource path="res://images/explosion/tile003.png" type="Texture" id=5]
+[ext_resource path="res://images/explosion/tile004.png" type="Texture" id=6]
+[ext_resource path="res://images/explosion/tile005.png" type="Texture" id=7]
+[ext_resource path="res://images/explosion/tile006.png" type="Texture" id=8]
+[ext_resource path="res://images/explosion/tile007.png" type="Texture" id=9]
+[ext_resource path="res://images/explosion/tile008.png" type="Texture" id=10]
+[ext_resource path="res://images/explosion/tile009.png" type="Texture" id=11]
+[ext_resource path="res://images/explosion/tile010.png" type="Texture" id=12]
+[ext_resource path="res://images/explosion/tile011.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "New Anim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "explode",
+"speed": 20.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Explosion" type="Area2D"]
+
+scale = Vector2( 0.7, 0.7 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+position = Vector2( 0, 0.10947 )
+frames = SubResource( 1 )
+animation = "explode"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.269119, 3.4986 )
+shape = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+
+

@@ -1,0 +1,192 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Boss.gd" type="Script" id=1]
+[ext_resource path="res://EnemyBullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Laser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://images/Boss/BIG_MAMA-0.png" type="Texture" id=4]
+
+[node name="Boss" type="Node2D"]
+
+position = Vector2( 0.367249, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+Bullet = ExtResource( 2 )
+Missile = null
+Laser = ExtResource( 3 )
+
+[node name="mainbody" type="Sprite" parent="." index="0"]
+
+position = Vector2( -0.798279, 0.200882 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 121, 7, 132, 180 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="kinematic" type="KinematicBody2D" parent="mainbody" index="0"]
+
+editor/display_folded = true
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="mainbody/kinematic" index="0"]
+
+visible = false
+position = Vector2( -1.00385, 14.0538 )
+build_mode = 0
+polygon = PoolVector2Array( -46.6344, -96.0866, -17.5113, -95.4247, -0.96402, -86.1582, 15.5832, -96.7484, 46.692, -97.4103, 48.6777, -51.0781, 60.5917, -39.826, 59.2679, 19.7441, 46.692, 43.5721, 47.3539, 74.019, 16.907, 71.3714, 15.5832, 41.5864, -13.5399, 40.9245, -14.8637, 71.3714, -45.9725, 70.0477, -45.9725, 41.5864, -57.2246, 19.0822, -59.2103, -39.826, -46.6344, -52.4019 )
+
+[node name="gun_laser" type="Sprite" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( -1.68838, 16.6892 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 45, 56, 64, 130 )
+_sections_unfolded = [ "Material", "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="gun_laser" index="0"]
+
+position = Vector2( 0.639343, -4.04147 )
+scale = Vector2( 1, 0.996426 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun_laser/KinematicBody2D" index="0"]
+
+visible = false
+position = Vector2( -0.319672, 3.84991 )
+build_mode = 0
+polygon = PoolVector2Array( -0.963989, -55.7113, 13.5976, -49.7543, 24.1878, -37.8403, 32.1305, -13.3504, 11.6119, 6.50629, 11.6119, 54.8242, -8.24478, 54.1623, -11.5542, 6.50629, -30.749, -14.0123, -24.1301, -37.8403, -10.2304, -52.4019 )
+
+[node name="spawnpoint_laser" type="Position2D" parent="gun_laser" index="1"]
+
+position = Vector2( 0.959045, 49.87 )
+
+[node name="gun_missile" type="Sprite" parent="." index="2"]
+
+position = Vector2( 62.5925, -7.07771 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 285, 15, 34, 65 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="gun_missile" index="0"]
+
+editor/display_folded = true
+position = Vector2( -0.319672, 0.639359 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun_missile/KinematicBody2D" index="0"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -8.24481, -29.2357, 6.31674, -29.8976, 15.5832, -24.6025, 5.65488, 32.9819, -4.93536, 32.32, -16.8494, -24.6025 )
+
+[node name="spawnpoint_missile" type="Position2D" parent="gun_missile" index="1"]
+
+position = Vector2( -1.1201, 23.5322 )
+
+[node name="gun_spread" type="Sprite" parent="." index="3"]
+
+position = Vector2( -66.3849, -10.138 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 286, 80, 32, 54 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="gun_spread" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun_spread/KinematicBody2D" index="0"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -6.92102, -25.2644, 8.30246, -24.6025, 15.5832, -17.9836, 4.33112, 28.3486, -4.27347, 25.7011, -15.5256, -17.9836 )
+
+[node name="spawnpoint_spread" type="Position2D" parent="gun_spread" index="1"]
+
+position = Vector2( -0.319672, 22.6972 )
+
+[node name="gun_shockwave" type="Sprite" parent="." index="4"]
+
+position = Vector2( -1.48349, -82.7937 )
+rotation = 3.14159
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 286, 80, 32, 54 )
+_sections_unfolded = [ "Region", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="gun_shockwave" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gun_shockwave/KinematicBody2D" index="0"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -6.92102, -25.2644, 8.30246, -24.6025, 15.5832, -17.9836, 4.33112, 28.3486, -4.27347, 25.7011, -15.5256, -17.9836 )
+
+[node name="spawnpoint_shockwave" type="Position2D" parent="gun_shockwave" index="1"]
+
+position = Vector2( -0.319672, 22.6972 )
+
+[node name="spike_rack" type="Sprite" parent="." index="5"]
+
+position = Vector2( -2.29106, 98.8677 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 136, 186, 100, 32 )
+_sections_unfolded = [ "Region" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="spike_rack" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spike_rack/KinematicBody2D" index="0"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( -45.2515, -10.9659, 47.4696, -11.6053, 44.9118, 13.3335, -42.6937, 13.9729 )
+
+[node name="BulletSpawnPoint" type="Position2D" parent="." index="6"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Behavior" type="Node" parent="." index="7"]
