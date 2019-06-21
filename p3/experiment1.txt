@@ -1,0 +1,19 @@
+p1: 100 p2:50
+Final win counts: {'draw': 0, 1: 77, 2: 23}
+p1: 100 p2: 200
+Final win counts: {'draw': 0, 1: 42, 2: 58}
+p1: 100 p2: 500
+Final win counts: {'draw': 0, 1: 21, 2: 79}
+p1: 100 p2: 80
+Final win counts: {'draw': 0, 1: 67, 2: 33}
+
+Analysis:
+The vanilla bot won more often if it
+had more nodes, as expected. When one player
+had 5 times as many nodes, as when p1 had 100
+and p2 had 500, p2 won decisively. However,
+even though the player with more nodes always
+won more games, the ratios of wins could
+be mixed. For example, the bot played itself
+with p1 at 100 nodes and p2 at 200, but p2
+won a little less than 60% of games.
