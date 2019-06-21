@@ -1,0 +1,48 @@
+exploration factor = 5
+
+
+p1 = vanilla, p2 = modified
+p1: 100 p2:100
+Final win counts: {'draw': 0, 1: 57, 2: 43}
+
+p1 = modified, p2 = vanilla
+p1: 100 p2:100
+Final win counts: {'draw': 0, 1: 51, 2: 49}
+
+p1 = vanilla, p2 = modified
+p1: 10 p2:10
+Final win counts: {'draw': 3, 1: 63, 2: 34}
+
+p1 = modified, p2 = vanilla
+p1: 10 p2:10
+Final win counts: {'draw': 3, 1: 45, 2: 52}
+
+
+With both factor = 5 and heuristic rollout
+
+
+p1 = vanilla, p2 = modified
+p1: 100 p2:100
+Final win counts: {'draw': 0, 1: 38, 2: 62}
+
+p1 = modified, p2 = vanilla
+p1: 100 p2:100
+Final win counts: {'draw': 1, 1: 66, 2: 33}
+
+p1 = vanilla, p2 = modified
+p1: 10 p2:10
+Final win counts: {'draw': 3, 1: 27, 2: 70}
+
+p1 = modified, p2 = vanilla
+p1: 10 p2:10
+Final win counts: {'draw': 4, 1: 81, 2: 15}
+
+Analysis:
+The bot seemed to do not as bad when the
+exploration factor was increased.
+When tree was reduced to 10, the modified
+version won much more often. This is expected
+since there weren't many nodes to test.
+
+
+
