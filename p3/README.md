@@ -1,3 +1,4 @@
+# Tic-Tac-Toe Bot
 Monte Carlo Tree Search bot in Tic-Tac-Toe.
 
 Modified: mcts_vanilla.py, mcts_modified.py
@@ -27,3 +28,8 @@ changed so the bot would want to explore more.
 
 Different factors were tested to see
 how this would affect win chances.
+
+---
+
+## Screenshots
+![movie poster grid view](p3_1.PNG)
