@@ -32,4 +32,4 @@ how this would affect win chances.
 ---
 
 ## Screenshots
-![movie poster grid view](p3_1.PNG)
+![screenshot](p3_1.PNG)
