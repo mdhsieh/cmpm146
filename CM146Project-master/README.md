@@ -5,4 +5,4 @@ To run: Download the Godot engine and open up the folder containing the project.
 Then hit the play icon on the top right corner.
 
 ## Screenshots
-![movie poster grid view](cm146_2.PNG)
+![gameplay screenshot](cm146_2.PNG)
