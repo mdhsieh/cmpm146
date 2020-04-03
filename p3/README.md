@@ -1,5 +1,5 @@
 # Tic-Tac-Toe Bot
-Monte Carlo Tree Search bot in Tic-Tac-Toe.
+Monte Carlo Tree Search bot which plays Ultimate Tic-Tac-Toe.
 
 Modified: mcts_vanilla.py, mcts_modified.py
 
